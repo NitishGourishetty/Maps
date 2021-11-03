@@ -63,7 +63,7 @@ def enumerate(s, start=0):
     """
     # BEGIN Question 0
     "*** YOUR CODE HERE ***"
-    return zip([[start + index for index in range(len(s))] ,s])
+    return zip([start + index for index in range(len(s))], s)
     # END Question 0*
 
 def distance(pos1, pos2):
