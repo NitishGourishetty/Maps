@@ -1,7 +1,6 @@
 """Data Abstractions"""
 
 from utils import mean
-
 #############################
 # Phase 1: Data Abstraction #
 #############################
@@ -64,12 +63,14 @@ def make_restaurant(name, location, categories, price, reviews):
     categories, price, and reviews for that restaurant."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
+    return[name, location, categories, price, reviews]
     # END Question 2
 
 def restaurant_name(restaurant):
     """Return the name of the restaurant, which is a string."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
+    return restaurant[0]
     # END Question 2
 
 def restaurant_location(restaurant):
@@ -77,18 +78,21 @@ def restaurant_location(restaurant):
     latitude and longitude."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
+    return restaurant[1]
     # END Question 2
 
 def restaurant_categories(restaurant):
     """Return the categories of the restaurant, which is a list of strings."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
+    return restaurant[2]
     # END Question 2
 
 def restaurant_price(restaurant):
     """Return the price of the restaurant, which is a number."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
+    return restaurant[3]
     # END Question 2
 
 def restaurant_ratings(restaurant):
@@ -96,4 +100,5 @@ def restaurant_ratings(restaurant):
     restaurant based on the reviews of the restaurant."""
     # BEGIN Question 2
     "*** YOUR CODE HERE ***"
+    return [review_rating(elem) for elem in restaurant[4]]
     # END Question 2
