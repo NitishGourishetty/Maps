@@ -52,7 +52,7 @@ def group_by_centroid(restaurants, centroids):
     """
     # BEGIN Question 4
     "*** YOUR CODE HERE ***"
-    # 1st as restaruant, 2nd as location closest to the centroid
+    # returns appended list with object and the locations
     return group_by_first([[find_closest(restaurant_location(elem), centroids), elem] for elem in restaurants])
 
     # END Question 4
@@ -79,7 +79,11 @@ def k_means(restaurants, k, max_updates=100):
         old_centroids = centroids
         # BEGIN Question 6
         "*** YOUR CODE HERE ***"
+        # Each Centroid is the index and in each element is the restaurant objects
         centroids = group_by_centroid(restaurants, centroids)
+        # Loop through list of lists (clusters) in restaurant objects, and finds a mean value for each element
+        # Those mean values become the new centroids
+        # Loops and completes
         centroids = [find_centroid(elem) for elem in centroids]
         # END Question 6
         n += 1
