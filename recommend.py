@@ -79,6 +79,8 @@ def k_means(restaurants, k, max_updates=100):
         old_centroids = centroids
         # BEGIN Question 6
         "*** YOUR CODE HERE ***"
+        centroids = group_by_centroid(restaurants, centroids)
+        centroids = [find_centroid(elem) for elem in centroids]
         # END Question 6
         n += 1
     return centroids
