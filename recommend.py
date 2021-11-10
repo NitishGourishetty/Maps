@@ -1,4 +1,5 @@
 """A Yelp-powered Restaurant Recommendation Program"""
+from functools import reduce
 
 from abstractions import *
 from data import ALL_RESTAURANTS, CATEGORIES, USER_FILES, load_user_file
@@ -110,6 +111,13 @@ def find_predictor(user, restaurants, feature_fn):
 
     # BEGIN Question 7
     "*** YOUR CODE HERE ***"
+    S_xx = sum([(mean(xs) - s) ** 2 for s in xs])
+    S_yy = sum([(mean(ys) - s) ** 2 for s in ys])
+    S_xy = sum([(s[0] - mean(xs)) * (s[1] - mean(ys)) for s in zip(xs, ys)])
+    b = S_xy / S_xx
+    a = mean(ys) - b * mean(xs)
+    r_squared = (S_xy**2) / (S_xx * S_yy)
+
     # END Question 7
 
     def predictor(restaurant):
@@ -130,6 +138,8 @@ def best_predictor(user, restaurants, feature_fns):
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 8
     "*** YOUR CODE HERE ***"
+    return max([find_predictor(user, reviewed, ff) for ff in feature_fns], key=lambda z: z[1])[0]
+
     # END Question 8
 
 
